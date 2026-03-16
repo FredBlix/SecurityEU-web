@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc /Users/blix/Desktop/security-eu-website-copy.docx -o /tmp/security-eu-website-copy.md)",
+      "Bash(pandoc \"/Users/blix/Desktop/Notes for Web Site.docx\" -o /tmp/notes-for-website.md)",
+      "Bash(pip3 install:*)",
+      "WebFetch(domain:visente.com)",
+      "mcp__Claude_Preview__preview_start",
+      "WebSearch",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

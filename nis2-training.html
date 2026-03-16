@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NIS2 Mandatory Training for Management Bodies — security.eu</title>
+  <meta name="description" content="Structured cybersecurity training for boards and senior management to fulfil NIS2 Article 20 requirements. Coming soon from security.eu.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">security<span>.eu</span></a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="/">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="/">Home</a><span>/</span>NIS2 Mandatory Training for Management Bodies
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="placeholder-hero">
+    <div class="container">
+      <div class="badge badge-coming-soon" style="margin-bottom: 24px;">Coming Soon</div>
+      <h1>NIS2 Mandatory Training for Management Bodies</h1>
+      <p class="hero-sub">Structured training to ensure your board and senior management meet the cybersecurity knowledge requirements mandated by the NIS2 Directive.</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="placeholder-content">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 12px;">What this service will offer</h2>
+      <p style="color: var(--gray-text); margin-bottom: 24px; line-height: 1.7;">NIS2 Article 20 requires management bodies of essential and important entities to undergo cybersecurity training. This service will provide tailored, expert-led training programmes designed for executives and board members.</p>
+      <ul class="placeholder-features">
+        <li>Training aligned with NIS2 Article 20 requirements</li>
+        <li>Tailored content for boards, C-suite, and senior management</li>
+        <li>Led by cybersecurity experts with regulatory experience</li>
+        <li>Practical, scenario-based approach — not generic awareness</li>
+        <li>Documentation and certification of completed training</li>
+        <li>Available as on-site, remote, or self-paced formats</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="contact-form-section">
+    <div class="container">
+      <h2 class="fade-in">Interested in this service?</h2>
+      <p class="fade-in">Register your interest and we'll notify you when this service becomes available.</p>
+      <form class="contact-form fade-in" id="contact-form" data-service="18b4a8a6-5896-4604-b802-f9336af7ec39">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" required placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" required placeholder="Doe">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+46 70 123 4567">
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span class="optional">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="Tell us about your needs..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Register your interest</button>
+        <p class="form-note">We typically respond within one business day. You can also reach us at <a href="mailto:csr@security.eu">csr@security.eu</a></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <span>security.eu &middot; Operated by Visente AB &middot; Stockholm, Sweden &middot; &copy; 2026</span>
+    </div>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookie-banner">
+    <span>We use cookies on our website to see how you interact with it. By accepting, you agree to our use of such cookies. <a href="https://www.visente.com/privacy" target="_blank">Privacy Policy</a></span>
+    <div class="cookie-banner-buttons">
+      <button class="cookie-accept" onclick="acceptCookies()">Accept</button>
+      <button onclick="dismissCookies()">Close</button>
+    </div>
+  </div>
+  <script>
+    function acceptCookies() { localStorage.setItem('cookies_accepted', '1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    function dismissCookies() { localStorage.setItem('cookies_accepted', '1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    if (localStorage.getItem('cookies_accepted')) document.getElementById('cookie-banner').classList.add('hidden');
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
