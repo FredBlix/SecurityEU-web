@@ -38,37 +38,30 @@ if (contactForm) {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    // UUID generator for sessionUuid
-    const generateUUID = () => {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
-    };
-
     const formData = {
-      formId: 'LZ0pbG',
-      sessionUuid: generateUUID(),
-      fields: [
-        { key: '4ef6cd40-194a-4962-9860-7eda118466de', type: 'INPUT_TEXT', value: contactForm.querySelector('#first-name').value },
-        { key: 'efeec5b1-680d-4d20-b924-82a055d3fc8b', type: 'INPUT_TEXT', value: contactForm.querySelector('#last-name').value },
-        { key: '7c893713-58d2-4dff-a340-f0a59343e568', type: 'INPUT_EMAIL', value: contactForm.querySelector('#email').value },
-        { key: 'b052de0b-ec94-4912-adf4-3bad98ab024c', type: 'INPUT_PHONE_NUMBER', value: contactForm.querySelector('#phone').value },
-        { key: '364df046-7065-45a5-8103-ca01f7b42023', type: 'TEXTAREA', value: contactForm.querySelector('#message') ? contactForm.querySelector('#message').value : '' }
-      ]
+      data: {
+        '4ef6cd40-194a-4962-9860-7eda118466de': contactForm.querySelector('#first-name').value,
+        'efeec5b1-680d-4d20-b924-82a055d3fc8b': contactForm.querySelector('#last-name').value,
+        '7c893713-58d2-4dff-a340-f0a59343e568': contactForm.querySelector('#email').value,
+        'b052de0b-ec94-4912-adf4-3bad98ab024c': contactForm.querySelector('#phone').value || '',
+        '364df046-7065-45a5-8103-ca01f7b42023': contactForm.querySelector('#message') ? contactForm.querySelector('#message').value : ''
+      }
     };
 
     // Service interest: use dropdown if present, otherwise use data-service attribute
     const serviceSelect = contactForm.querySelector('#service');
     const serviceValue = serviceSelect ? serviceSelect.value : contactForm.dataset.service;
     if (serviceValue) {
-      formData.fields.push({ key: 'b85701bb-fd0a-476a-be0a-c2df7f0376fe', type: 'DROPDOWN', value: serviceValue });
+      formData.data['b85701bb-fd0a-476a-be0a-c2df7f0376fe'] = serviceValue;
     }
 
     try {
-      const res = await fetch('https://tally.so/api/forms/LZ0pbG/respond', {
+      const res = await fetch('https://api.tally.so/v1/forms/LZ0pbG/submissions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer tly-BWb8DouRZI7U1K6bjOdefH9VR0clPr62'
+        },
         body: JSON.stringify(formData)
       });
 
