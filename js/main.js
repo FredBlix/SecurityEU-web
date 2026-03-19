@@ -27,9 +27,11 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Contact form submission to Tally
+// Contact form submission to Formspree
+console.log('Form code loaded - Formspree version');
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
+  console.log('Form element found, attaching Formspree listener');
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -38,40 +40,30 @@ if (contactForm) {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    const generateUUID = () => {
-      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-      });
-    };
+    const formDataObj = new FormData();
+    formDataObj.append('first_name', contactForm.querySelector('#first-name').value);
+    formDataObj.append('last_name', contactForm.querySelector('#last-name').value);
+    formDataObj.append('email', contactForm.querySelector('#email').value);
+    formDataObj.append('phone', contactForm.querySelector('#phone').value || '');
+    formDataObj.append('message', contactForm.querySelector('#message') ? contactForm.querySelector('#message').value : '');
 
-    const formData = {
-      formId: 'LZ0pbG',
-      sessionUuid: generateUUID(),
-      fields: [
-        { key: '4ef6cd40-194a-4962-9860-7eda118466de', type: 'INPUT_TEXT', value: contactForm.querySelector('#first-name').value },
-        { key: 'efeec5b1-680d-4d20-b924-82a055d3fc8b', type: 'INPUT_TEXT', value: contactForm.querySelector('#last-name').value },
-        { key: '7c893713-58d2-4dff-a340-f0a59343e568', type: 'INPUT_EMAIL', value: contactForm.querySelector('#email').value },
-        { key: 'b052de0b-ec94-4912-adf4-3bad98ab024c', type: 'INPUT_PHONE_NUMBER', value: contactForm.querySelector('#phone').value },
-        { key: '364df046-7065-45a5-8103-ca01f7b42023', type: 'TEXTAREA', value: contactForm.querySelector('#message') ? contactForm.querySelector('#message').value : '' }
-      ]
-    };
-
-    // Service interest: use dropdown if present, otherwise use data-service attribute
     const serviceSelect = contactForm.querySelector('#service');
     const serviceValue = serviceSelect ? serviceSelect.value : contactForm.dataset.service;
     if (serviceValue) {
-      formData.fields.push({ key: 'b85701bb-fd0a-476a-be0a-c2df7f0376fe', type: 'DROPDOWN', value: serviceValue });
+      const serviceNames = {
+        '6b4316e3-427e-4ca3-8247-20639e405d8b': 'CSR Managed Assurance',
+        '18b4a8a6-5896-4604-b802-f9336af7ec39': 'NIS2 Mandatory Training',
+        '22496622-f958-4693-8206-cb58e03d6107': 'NIS2 Policy Compliance Check',
+        '6f420db6-8b46-4d9f-801d-7db619b01ff3': 'Other'
+      };
+      formDataObj.append('service_interest', serviceNames[serviceValue] || 'Other');
     }
 
     try {
-      console.log('Sending formData:', formData);
-      const res = await fetch('https://tally.so/api/forms/LZ0pbG/respond', {
+      const res = await fetch('https://formspree.io/f/mdokyonw', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: formDataObj
       });
-      console.log('Response status:', res.status);
 
       if (res.ok) {
         contactForm.innerHTML = '<div class="form-success"><h3>Thank you!</h3><p>Your enquiry has been received. We\'ll get back to you within one business day.</p></div>';
