@@ -38,8 +38,16 @@ if (contactForm) {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
+    const generateUUID = () => {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+        const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    };
+
     const formData = {
       formId: 'LZ0pbG',
+      sessionUuid: generateUUID(),
       fields: [
         { key: '4ef6cd40-194a-4962-9860-7eda118466de', type: 'INPUT_TEXT', value: contactForm.querySelector('#first-name').value },
         { key: 'efeec5b1-680d-4d20-b924-82a055d3fc8b', type: 'INPUT_TEXT', value: contactForm.querySelector('#last-name').value },
@@ -57,11 +65,13 @@ if (contactForm) {
     }
 
     try {
+      console.log('Sending formData:', formData);
       const res = await fetch('https://tally.so/api/forms/LZ0pbG/respond', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
+      console.log('Response status:', res.status);
 
       if (res.ok) {
         contactForm.innerHTML = '<div class="form-success"><h3>Thank you!</h3><p>Your enquiry has been received. We\'ll get back to you within one business day.</p></div>';
