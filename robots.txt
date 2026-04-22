@@ -1,0 +1,7 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+Disallow:
+
+# Sitemap location
+Sitemap: https://security.eu/sitemap.xml
