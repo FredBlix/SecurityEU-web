@@ -1,0 +1,104 @@
+{
+  "organization": {
+    "name": "security.eu",
+    "description": "Managed cybersecurity services powered by AI and expert oversight. EU-native compliance solutions.",
+    "url": "https://security.eu",
+    "region": "EU",
+    "established": "2024",
+    "specialization": ["NIS2 Compliance", "Cybersecurity Assessments", "Security Training"]
+  },
+  "services": [
+    {
+      "id": "csr",
+      "name": "CSR Managed Assurance",
+      "slug": "csr",
+      "url": "https://security.eu/csr.html",
+      "shortDescription": "AI-powered responses to security questionnaires and vendor assessments",
+      "fullDescription": "Expert-led, AI-powered responses to security questionnaires, contract appendices, and compliance assessments. Our service combines artificial intelligence with expert human oversight to deliver high-quality security requirement responses.",
+      "category": "Compliance & Assessment",
+      "features": [
+        "Security questionnaire automation",
+        "Contract appendix responses",
+        "Vendor assessment completion",
+        "Expert review and validation",
+        "SLA-backed delivery"
+      ],
+      "targetAudience": [
+        "SaaS companies",
+        "Technology vendors",
+        "Service providers",
+        "Enterprise organizations"
+      ],
+      "compliance": ["ISO 27001", "SOC 2", "GDPR"],
+      "status": "active",
+      "availability": "available"
+    },
+    {
+      "id": "nis2-training",
+      "name": "NIS2 Mandatory Training",
+      "slug": "nis2-training",
+      "url": "https://security.eu/nis2-training.html",
+      "shortDescription": "Cybersecurity training for boards and management to meet NIS2 Article 20 requirements",
+      "fullDescription": "Structured cybersecurity training for boards and senior management to fulfill NIS2 Article 20 requirements. Covers governance, risk management, incident response, and regulatory obligations specific to the NIS2 directive.",
+      "category": "Training & Education",
+      "features": [
+        "Board-level cybersecurity training",
+        "NIS2 Article 20 compliance",
+        "Management body requirements",
+        "Regulatory update coverage",
+        "Interactive learning modules"
+      ],
+      "targetAudience": [
+        "Boards of Directors",
+        "Executive Management",
+        "Critical Infrastructure Operators",
+        "Digital Service Providers"
+      ],
+      "compliance": ["NIS2 Directive"],
+      "status": "coming-soon",
+      "availability": "pre-order"
+    },
+    {
+      "id": "nis2-compliance",
+      "name": "NIS2 Policy Compliance Check",
+      "slug": "nis2-compliance",
+      "url": "https://security.eu/nis2-compliance.html",
+      "shortDescription": "Automated assessment of information security policies against NIS2 requirements",
+      "fullDescription": "Automated assessment of your information security policies against NIS2 requirements. Identifies gaps, highlights non-compliance areas, and provides recommendations for achieving compliance readiness.",
+      "category": "Compliance & Assessment",
+      "features": [
+        "Policy gap analysis",
+        "NIS2 requirement mapping",
+        "Automated assessment",
+        "Compliance recommendations",
+        "Readiness reporting"
+      ],
+      "targetAudience": [
+        "Critical Infrastructure Operators",
+        "Digital Service Providers",
+        "Enterprise organizations",
+        "Regulated industries"
+      ],
+      "compliance": ["NIS2 Directive"],
+      "status": "coming-soon",
+      "availability": "pre-order"
+    }
+  ],
+  "capabilities": {
+    "technologies": ["AI-powered automation", "Expert human oversight", "Regulatory expertise"],
+    "regions": ["EU"],
+    "languages": ["English"],
+    "supportChannels": ["Email", "Contact form"],
+    "responseTime": "24-48 hours"
+  },
+  "contact": {
+    "website": "https://security.eu",
+    "contactForm": "https://security.eu/#contact",
+    "email": "contact@security.eu"
+  },
+  "metadata": {
+    "lastUpdated": "2026-04-22",
+    "version": "1.0",
+    "apiVersion": "1.0"
+  }
+}
